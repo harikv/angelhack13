@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block head %}
+
+{% load compress %}
+{% compress css %}
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/base.css" %}" media="screen" type="text/css">
+
+{% endcompress %}
+
+{% load compress %}
+{% compress js %}
+
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $("#id_position").attr('placeholder', '{{form.position.label}}');
+        $("#id_email").attr('placeholder', '{{form.email.label}}');
+        $("#id_password1").attr('placeholder', '{{form.password1.label}}');
+        $("#id_password2").attr('placeholder', '{{form.password2.label}}');
+    });
+</script>
+
+{% endcompress %}
+
+{% endblock %}
+
+{% block content %}
+   
+   <div class='header heavy-font'>
+   		<span>Hacker Registration</span>
+   </div>
+   
+   <div class='content'>
+
+	<form id='signup-form' method="post" action=".">
+	  {% csrf_token %}
+
+      {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+	        <div class="alert alert-error" style="width:292px">
+	            <button type="button" class="close" data-dismiss="alert">×</button>
+	            {{ error  }}
+	        </div>
+            {% endfor %}
+      {% endif %}
+
+      {% for field in form %}
+            <div class="fieldWrapper">
+                {% for error in field.errors %}
+                    <div class="alert alert-error" style="width:292px">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ error|escape }}
+                    </div>
+                {% endfor %}
+                {{ field }}
+            </div>
+        {% endfor %}
+      
+      <button class="yellow-button heavy-font submit-button" type="button" onclick="DisableButton(this);$('#registering_modal').modal('show');">Sign Up</button>
+	</form>
+	
+	</div>
+    
+{% endblock %}

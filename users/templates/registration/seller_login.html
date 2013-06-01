@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block head %}
+
+{% load compress %}
+{% compress css %}
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}" media="screen" type="text/css">
+
+{% endcompress %}
+
+{% load compress %}
+{% compress js %}
+
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $("#id_email").attr('placeholder', '{{form.email.label}}');
+        $("#id_password").attr('placeholder', '{{form.password.label}}');
+    });
+</script>
+
+{% endcompress %}
+
+{% endblock %}
+
+{% block content %}
+   
+   <div class='header heavy-font'>
+   		<img src="{{STATIC_URL}}/img/user_login.png" /><span>Seller Login</span>
+   </div>
+
+
+   <div class='content'>
+
+	<form id='signup-form' method="post" action=".">
+	  {% csrf_token %}
+
+      {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+	        <div class="alert alert-error" style="width:292px">
+	            <button type="button" class="close" data-dismiss="alert">×</button>
+	            {{ error  }}
+	        </div>
+            {% endfor %}
+      {% endif %}
+
+      {% for field in form %}
+            <div class="fieldWrapper">
+                {% for error in field.errors %}
+                    <div class="alert alert-error" style="width:292px">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ error|escape }}
+                    </div>
+                {% endfor %}
+                {{ field }}
+            </div>
+        {% endfor %}
+	  
+      <button class="yellow-button heavy-font submit-button" type="submit" onclick="DisableButton(this);$('#registering_modal').modal('show');">Login</button>
+      <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{% url seller_rules %}{% endif %}" />
+	</form>
+    
+          <p>{% trans "Forgot password" %}? <a href="{% url seller_auth_password_reset %}">{% trans "Reset it" %}</a>!</p>
+   	  <p>{% trans "Don't have an account" %}? <a href="{% url seller_registration_register %}">{% trans "Sign Up" %}</a>!</p>
+
+	
+	</div>
+    
+      <!-- Logging in Modal -->
+      <div id="registering_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-header">
+          <h3 id="myModalLabel">Logging in...</h3>
+        </div>
+        <div class="modal-body">
+          <img src="{{STATIC_URL}}/img/ajax-loader.gif" />
+        </div>
+      </div>
+
+{% endblock %}
