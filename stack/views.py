@@ -1,5 +1,8 @@
 # Create your views here.
-from django.http import HttpResponse
+from django.views.generic import ListView, DetailView, TemplateView
 
-def landing(request):
-	return HttpResponse('Landing Page')
+class LandingPageView(TemplateView):
+    template_name = "landing.html"
+
+class CompanyPageView(TemplateView):
+    template_name = "company.html"

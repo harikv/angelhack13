@@ -1,0 +1,86 @@
+.techstack-nav {
+    background-image: none;
+}
+.techstack-nav > .navbar-inner {
+    font-size: 16px;
+    background-image: none;
+    background-color: rgb(0, 179, 255);
+    color: rgb(0, 0, 0);
+    ;
+}
+.techstack-nav .brand {
+    color: rgb(255, 255, 255);
+    text-shadow:none;
+}
+.techstack-nav .nav {
+    position: relative;
+    float: right;
+    background-image: none;
+}
+.techstack-nav .nav > li > a {
+    color:white;
+    text-shadow:none;
+}
+.techstack-nav .nav > li > a:hover {
+    background-color: rgb(0, 100, 150);
+    color:white;
+}
+
+.gray-background{
+    background: #f2f2f2;
+}
+
+.white-background{
+    background: #fff;
+}
+
+.body-padding-top
+{
+   padding-top: 41px;
+}
+
+.dark-line{
+    height: 1px;
+    background: rgb(230, 230, 230);
+}
+.whites-line{
+    height: 1px;
+    background: rgb(140, 140, 140);
+}
+
+.featured-listing-link
+{
+    width:150px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 18px;
+    color:rgb(150, 150, 150);
+    padding-top: 5px;
+    line-height: 26px;
+
+}
+
+.big-padding-top
+{
+    padding-top: 50px;
+}
+
+.big-padding-bottom
+{
+    padding-bottom: 50px;
+}
+
+.small-padding-top
+{
+    padding-top: 30px;
+}
+
+.small-padding-bottom
+{
+    padding-bottom: 30px;
+}
+
+input.search-query .landing-search-bar
+{
+    border-radius: 3px;
+}
