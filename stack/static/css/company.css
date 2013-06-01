@@ -2,4 +2,47 @@
 {
 	border:solid 1px rgb(230, 230, 230);
 	background: white;
+	padding:20px;
 }
+
+.gray-card
+{
+	border:solid 1px rgb(230, 230, 230);
+	background: #f2f2f2;
+	padding:20px;
+}
+
+.stack-tag {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:2px 15px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.stack-tag:hover {
+	background-color:#dfdfdf;
+}
+
+.stack-tag:active {
+	position:relative;
+	top:1px;
+}
+
+.very-small-margin-top
+{
+	margin-top:10px;
+}
+
+
