@@ -11,8 +11,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/techstack.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/Users/kiran/databases/techstack.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -119,42 +119,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
-    'social_auth',
+    'users',
     'stack',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
 
-AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.facebook.FacebookBackend',
-    #'social_auth.backends.google.GoogleOAuthBackend',
-    #'social_auth.backends.google.GoogleOAuth2Backend',
-    #'social_auth.backends.google.GoogleBackend',
-    # 'social_auth.backends.yahoo.YahooBackend',
-    # 'social_auth.backends.browserid.BrowserIDBackend',
-    # 'social_auth.backends.contrib.linkedin.LinkedinBackend',
-    # 'social_auth.backends.contrib.disqus.DisqusBackend',
-    # 'social_auth.backends.contrib.livejournal.LiveJournalBackend',
-    # 'social_auth.backends.contrib.orkut.OrkutBackend',
-    # 'social_auth.backends.contrib.foursquare.FoursquareBackend',
-    # 'social_auth.backends.contrib.github.GithubBackend',
-    # 'social_auth.backends.contrib.vk.VKOAuth2Backend',
-    # 'social_auth.backends.contrib.live.LiveBackend',
-    # 'social_auth.backends.contrib.skyrock.SkyrockBackend',
-    # 'social_auth.backends.contrib.yahoo.YahooOAuthBackend',
-    # 'social_auth.backends.contrib.readability.ReadabilityBackend',
-    # 'social_auth.backends.contrib.fedora.FedoraBackend',
-    # 'social_auth.backends.OpenIDBackend',
-    # 'django.contrib.auth.backends.ModelBackend',
-)
-
-FACEBOOK_APP_ID = '383267995110924'
-FACEBOOK_API_SECRET = 'cf0bfa9fe58f9cb82653b27bbfd307fb'
-
-FACEBOOK_EXTENDED_PERMISSIONS = ['publish_actions', 'email']
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
