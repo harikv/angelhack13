@@ -28,7 +28,7 @@ class HackerRegistrationForm(EmailUserCreationForm):
         webmail domains.
         
         """
-        super(HackerRegistrationForm, self).__init__(*args, **kwargs)
+        super(HackerRegistrationForm, self).clean_email()
     	
     	bad_domains = ['aim.com', 'aol.com', 'email.com', 'gmail.com',
                    'googlemail.com', 'hotmail.com', 'hushmail.com',
@@ -37,7 +37,7 @@ class HackerRegistrationForm(EmailUserCreationForm):
 
         email_domain = self.cleaned_data['email'].split('@')[1]
         if email_domain in bad_domains:
-            raise forms.ValidationError(_("Registration using free email addresses is prohibited. Please sign up with your company email address."))
+            raise forms.ValidationError(("Please sign up with your company email address."))
         return self.cleaned_data['email']
 
     def clean(self):

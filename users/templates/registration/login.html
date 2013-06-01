@@ -8,7 +8,7 @@
 {% compress css %}
 
 {% load staticfiles %}
-<link rel="stylesheet" href="{% static "css/base.css" %}" media="screen" type="text/css">
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}" media="screen" type="text/css">
 
 {% endcompress %}
 
@@ -17,12 +17,8 @@
 
 <script type="text/javascript" >
     $(document).ready(function(){
-        $("#id_position").attr('placeholder', 'Position');
         $("#id_email").attr('placeholder', 'Email');
-        $("#id_first_name").attr('placeholder', 'First Name');
-        $("#id_last_name").attr('placeholder', 'Last Name');
-        $("#id_password1").attr('placeholder', 'Password');
-        $("#id_password2").attr('placeholder', 'Confirm Password');
+        $("#id_password").attr('placeholder', 'Password');
     });
 </script>
 
@@ -33,9 +29,10 @@
 {% block content %}
    
    <div class='header heavy-font'>
-   		<h1>Hacker Registration</h1>
+   		<h1>Hacker Login</h1>
    </div>
-   
+
+
    <div class='content'>
 
 	<form id='signup-form' method="post" action=".">
@@ -61,10 +58,24 @@
                 {{ field }}
             </div>
         {% endfor %}
-      
-      <button class="yellow-button heavy-font submit-button" type="button" onclick="DisableButton(this);$('#registering_modal').modal('show');">Sign Up</button>
+	  
+      <button class="yellow-button heavy-font submit-button" type="submit" onclick="DisableButton(this);$('#registering_modal').modal('show');">Login</button>
+      <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{% url landing_page %}{% endif %}" />
 	</form>
+    
+   	  <p>{% trans "Don't have an account" %}? <a href="{% url register %}">{% trans "Sign Up" %}</a>!</p>
+
 	
 	</div>
     
+      <!-- Logging in Modal -->
+      <div id="registering_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-header">
+          <h3 id="myModalLabel">Logging in...</h3>
+        </div>
+        <div class="modal-body">
+          <img src="{{STATIC_URL}}/img/ajax-loader.gif" />
+        </div>
+      </div>
+
 {% endblock %}

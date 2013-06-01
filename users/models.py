@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from registration.signals import user_registered
 
-# Create your models here.
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, blank=True)
 

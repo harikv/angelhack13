@@ -1,6 +1,15 @@
 from users.forms import HackerRegistrationForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
+from django.contrib.auth.views import login as django_login
+from emailusernames.forms import EmailAuthenticationForm
+
+def login(request):
+    if not request.user.is_authenticated():
+        extra_context={}
+        return django_login(request, template_name='registration/login.html', authentication_form=EmailAuthenticationForm, extra_context=extra_context)
+    else:
+        return redirect(reverse('landing_page'))
 
 def register(request):
     if not request.user.is_authenticated():
@@ -9,3 +18,6 @@ def register(request):
     else:
         #if logged in
         return redirect(reverse('landing_page'))
+
+def activation_complete(request):
+        return redirect(reverse('login'))
