@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head %}
+
+{% load compress %}
+{% compress css %}
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static "css/dashboard.css" %}" media="screen" type="text/css">
+
+{% endcompress %}
+
+{% endblock %}
+
+{% block content %}
+   
+   <div class='content'>
+
+	   	<section>
+	      <div class='heading'>Account Activation</div>
+	    </section>
+
+	    <div class="alert alert-success">
+	      <button type="button" class="close" data-dismiss="alert">&times;</button>
+	      An activation email has been sent to your inbox. Please activate your account in order to create or edit your company's stack.
+	    </div>
+
+   </div>
+
+{% endblock %}

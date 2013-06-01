@@ -1,0 +1,17 @@
+{% load i18n %}
+Hello,
+
+Thanks for signing up for Hagglr.
+
+Please confirm your account by clicking the link below.
+
+http://{{ site.domain }}{% url registration_activate activation_key %}
+
+({% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %})
+
+We are trying to change the way people buy and sell online, so stay tuned to buy those concert tickets, that expensive bottle of wine and many more things with your friends!
+
+If you did not request for this link, please ignore this email.
+
+Cheers,
+The Hagglr Team
