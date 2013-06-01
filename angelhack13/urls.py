@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from stack.views import LandingPageView, CompanyPageView
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -6,7 +7,8 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'angelhack13.views.home', name='home'),
+    url(r'^$', LandingPageView.as_view(), name='home'),
+    url(r'^company/', CompanyPageView.as_view(), name='company_page'),
     # url(r'^angelhack13/', include('angelhack13.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
