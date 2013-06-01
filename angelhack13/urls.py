@@ -8,14 +8,15 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^register/', 'users.views.register', name='register'),
 
 	# registration complete
 	url(r'^register/complete/$',
 	   direct_to_template,
 	   {'template': 'registration/registration_complete.html'},
 	   name='registration_complete'),
+
+    # Examples:
+    url(r'^register/', 'users.views.register', name='register'),
 
     # login
         url(r'^login/$', 'users.views.login', name='login'),
