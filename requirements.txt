@@ -1,0 +1,4 @@
+Django==1.4
+South==0.7.5
+django-registration==0.8
+requests==0.13.6
