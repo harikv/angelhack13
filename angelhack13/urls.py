@@ -50,4 +50,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^test/', 'stack.views.index'),
+#    url(r'^submit/(?P<component>\d)/$', 'stack.views.submit'),
 )
