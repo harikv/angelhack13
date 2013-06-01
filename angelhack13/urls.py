@@ -44,6 +44,7 @@ urlpatterns = patterns('',
 
     url(r'^$', LandingPageView.as_view(), name='landing_page'),
     url(r'^company/', CompanyPageView.as_view(), name='company_page'),
+    url(r'^newstack/', 'stack.views.CreateStackForm', name='new_stack'),
     # url(r'^angelhack13/', include('angelhack13.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

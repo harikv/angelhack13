@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+    <link href="{% static 'css/company.css' %}" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" >
+	    $(document).ready(function(){
+	        $("#id_email").css('width', '278px');
+	        $("#id_first_name").css('width', '278px');
+	        $("#id_last_name").css('width', '278px');
+	    });
+	</script>
+
+    <div class="row-fluid small-padding-top">
+        <div class="span8 offset2 white-card">
+            <h1>
+                Facebook.com
+            </h1>
+
+            <div class="stack-tag">
+                Webapp
+            </div>
+            <div class="stack-tag">
+                Mobile
+            </div>
+            <p class="light-text small-padding-top">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.    
+            </p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 gray-card">
+            <p class="light-text">
+                Submitted by <b>Mark Zuckerberg</b>   
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row-fluid small-padding-top">
+        <div class="span8 offset2 white-card">
+            <h4>
+                Front End
+            </h4>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Languages
+            </h6>
+            <div class="stack-tag very-small-margin-top">
+                Webapp
+            </div>
+            <div class="stack-tag very-small-margin-top">
+                Mobile
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Frameworks
+            </h6>
+            <div class="stack-tag very-small-margin-top">
+                Bootstrap
+            </div>
+            <div class="stack-tag very-small-margin-top">
+                Backbone
+            </div>
+        </div>
+    </div>
+
+    <form method="post" action="">
+	    {{ feformset.management_form }}
+	    <table>
+	        {% for form in feformset %}
+	        {{ form }}
+	        {% endfor %}
+	    </table>
+	</form>
+
+
+{% endblock %}

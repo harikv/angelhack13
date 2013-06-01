@@ -13,15 +13,36 @@ class LandingPageView(TemplateView):
 class CompanyPageView(TemplateView):
     template_name = "company.html"
 
-def index(request):
-	feformset = FrontendFormsetHelper("facebook.com")
-	beformset = BackendFormsetHelper("facebook.com")
-	seformset = ServerFormsetHelper("facebook.com")
-	dbformset = DatabaseFormsetHelper("facebook.com")
-	context = {"feformset": feformset, "beformset": beformset, "seformset": seformset, "dbformset": dbformset}
-	context.update(csrf(request))
-	return render_to_response("index.html", context)
 
+
+def CreateStackForm(request):
+    '''
+    if request.method == "POST":
+        uform=BuyerUserForm(request.POST, instance=b.user)
+
+        if uform.is_valid():
+            buyer_user = uform.save()
+
+            #redirect to self
+            messages.info(request, "Settings successfully updated.")
+            return redirect(reverse('buyer_settings'))
+
+        else:
+            alert="Oops! Please fix the fields marked below and try again."
+            context.update({'alerts':[alert]})
+    '''
+
+    if request.method == 'GET':
+        feformset = FrontendFormsetHelper("facebook.com")
+        beformset = BackendFormsetHelper("facebook.com")
+        seformset = ServerFormsetHelper("facebook.com")
+        dbformset = DatabaseFormsetHelper("facebook.com")
+    
+    context = {"feformset": feformset, "beformset": beformset, "seformset": seformset, "dbformset": dbformset}
+    context.update(csrf(request))
+    return render_to_response("create-stack.html", context)
+
+'''
 def submit(request, component=None):
 	req_component = ComponentList.objects.get(pk=component)
 	FrontendFormset = inlineformset_factory(ComponentList, StackItem)
@@ -31,3 +52,4 @@ def submit(request, component=None):
 		return HttpResponse(status=200)
 	else:
 		return HttpResponse(status=500)
+'''
