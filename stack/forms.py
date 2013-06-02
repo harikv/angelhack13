@@ -2,7 +2,8 @@ from django.forms.models import inlineformset_factory
 from stack.models import StackItem, TechStack, ComponentList
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
-
+from django import forms
+'''
 def FrontendFormsetHelper(domain=None):
 	if domain is not None:
 		StackItemFormset =  inlineformset_factory(ComponentList, StackItem, max_num=3, extra=3)
@@ -66,3 +67,9 @@ def DatabaseFormsetHelper(domain=None):
 			req_component = ComponentList.objects.get(component_name="Database")
 			formset = StackItemFormset(queryset = StackItem.objects.none())
 			return formset
+'''
+
+class TechStackForm(forms.ModelForm):    
+    class Meta:
+        model = TechStack
+        exclude = ('domain', 'stack_item' )

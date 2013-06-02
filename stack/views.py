@@ -3,9 +3,10 @@ from django.views.generic import ListView, DetailView, TemplateView
 from django.forms.models import inlineformset_factory
 from stack.models import StackItem, TechStack, ComponentList
 from django.shortcuts import render_to_response
-from stack.forms import FrontendFormsetHelper, BackendFormsetHelper, ServerFormsetHelper, DatabaseFormsetHelper
 from django.http import HttpResponse
 from django.core.context_processors import csrf
+from stack.forms import TechStackForm
+from django.template import RequestContext
 
 class LandingPageView(TemplateView):
     template_name = "landing.html"
@@ -16,40 +17,14 @@ class CompanyPageView(TemplateView):
 
 
 def CreateStackForm(request):
-    '''
-    if request.method == "POST":
-        uform=BuyerUserForm(request.POST, instance=b.user)
+    if request.method == 'POST':
+        form = TechStackForm(request.POST)
+        if form.is_valid():
+            form.save()
 
-        if uform.is_valid():
-            buyer_user = uform.save()
+    else:
+        form = TechStackForm() # An unbound form
 
-            #redirect to self
-            messages.info(request, "Settings successfully updated.")
-            return redirect(reverse('buyer_settings'))
+    return render_to_response('create-stack.html',{'form': form,} ,context_instance=RequestContext(request))
 
-        else:
-            alert="Oops! Please fix the fields marked below and try again."
-            context.update({'alerts':[alert]})
-    '''
 
-    if request.method == 'GET':
-        feformset = FrontendFormsetHelper("facebook.com")
-        beformset = BackendFormsetHelper("facebook.com")
-        seformset = ServerFormsetHelper("facebook.com")
-        dbformset = DatabaseFormsetHelper("facebook.com")
-    
-    context = {"feformset": feformset, "beformset": beformset, "seformset": seformset, "dbformset": dbformset}
-    context.update(csrf(request))
-    return render_to_response("create-stack.html", context)
-
-'''
-def submit(request, component=None):
-	req_component = ComponentList.objects.get(pk=component)
-	FrontendFormset = inlineformset_factory(ComponentList, StackItem)
-	formset = FrontendFormset(request.POST, request.FILES, instance=req_component)
-	if formset.is_valid():
-		formset.save()
-		return HttpResponse(status=200)
-	else:
-		return HttpResponse(status=500)
-'''
