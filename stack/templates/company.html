@@ -5,17 +5,16 @@
     <div class="row-fluid small-padding-top">
         <div class="span8 offset2 white-card">
             <h1>
-                Facebook.com
+                {{company_name}}
             </h1>
+            {% for tag in company_type_of_application%}
+            <div class="stack-tag">
+                {{tag}}
+            </div>
+            {% endfor %}
 
-            <div class="stack-tag">
-                Webapp
-            </div>
-            <div class="stack-tag">
-                Mobile
-            </div>
             <p class="light-text small-padding-top">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.    
+                {{company_description}}   
             </p>
         </div>
     </div>
@@ -40,12 +39,11 @@
             <h6 class="span3">
                 Languages
             </h6>
+            {% for tag in frontend_languages%}
             <div class="stack-tag very-small-margin-top">
-                Webapp
+                {{tag}}
             </div>
-            <div class="stack-tag very-small-margin-top">
-                Mobile
-            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="row-fluid">
@@ -53,14 +51,194 @@
             <h6 class="span3">
                 Frameworks
             </h6>
+            {% for tag in frontend_framework%}
             <div class="stack-tag very-small-margin-top">
-                Bootstrap
+                {{tag}}
             </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Libraries
+            </h6>
+            {% for tag in frontend_libraries%}
             <div class="stack-tag very-small-margin-top">
-                Backbone
+                {{tag}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Why did we choose these?
+            </h6>
+            <div class="very-small-margin-top">
+                {{frontend_description}}
             </div>
         </div>
     </div>
+
+    <div class="row-fluid small-padding-top">
+        <div class="span8 offset2 white-card">
+            <h4>
+                Back End
+            </h4>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Languages
+            </h6>
+            {% for tag in backend_languages%}
+            <div class="stack-tag very-small-margin-top">
+                {{tag}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Frameworks
+            </h6>
+            {% for tag in backend_framework%}
+            <div class="stack-tag very-small-margin-top">
+                {{tag}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Libraries
+            </h6>
+            {% for tag in backend_libraries%}
+            <div class="stack-tag very-small-margin-top">
+                {{tag}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Why did we choose these?
+            </h6>
+            <div class="very-small-margin-top">
+                {{backend_description}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid small-padding-top">
+        <div class="span8 offset2 white-card">
+            <h4>
+                Database
+            </h4>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Databases
+            </h6>
+            {% for tag in database%}
+            <div class="stack-tag very-small-margin-top">
+                {{tag}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Why did we choose these?
+            </h6>
+            <div class="very-small-margin-top">
+                {{database_description}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid small-padding-top">
+        <div class="span8 offset2 white-card">
+            <h4>
+                Server Setup
+            </h4>
+        </div>
+    </div>
+    
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                OS
+            </h6>
+            <div class="very-small-margin-top">
+                {{server_os}}
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                RAM
+            </h6>
+            <div class="very-small-margin-top">
+                {{server_ram}}
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Configuration
+            </h6>
+            <div class="very-small-margin-top">
+                {{server_configuration}}
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                #Nodes
+            </h6>
+            <div class="very-small-margin-top">
+                {{server_nodes}}
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Hosting Provider
+            </h6>
+            <div class="very-small-margin-top">
+                {{server_hosting_provider}}
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 white-card">
+            <h6 class="span3">
+                Why did we choose these?
+            </h6>
+            <div class="very-small-margin-top">
+                {{server_description}}
+            </div>
+        </div>
+    </div>
+
     <!-- Disqus code here -->
 
     <div class="row-fluid small-padding-top">

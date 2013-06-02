@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_init, pre_init, post_save, pre_save
+from django.template.defaultfilters import slugify
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -16,6 +19,7 @@ def extract_tags(s):
 
 class TechStack(models.Model):
 	domain = models.CharField(max_length=128, null=True, default=None, blank=True)
+	company_slug = models.SlugField(max_length=255, unique=True)
 
 	company_name = models.CharField(max_length=200, blank = True, null = True, verbose_name='Company Name')
 	company_description = models.CharField(max_length=1000, blank = True, null = True, verbose_name='Company Description')
@@ -124,3 +128,9 @@ class TechStack(models.Model):
 	@classmethod
 	def get_featured_list(cls):
 		return TechStack.objects.all()[:10]
+
+@receiver(post_save, sender=TechStack)
+def slugify_company_name(sender,instance,created,**kwargs):
+    if created:
+        instance.company_slug =  slugify(instance.company_name)
+        instance.save()

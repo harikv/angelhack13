@@ -11,89 +11,271 @@
 	    });
 	</script>
 
-    <div class="row-fluid small-padding-top">
-        <div class="span8 offset2 white-card">
-            <h1>
-                Facebook.com
-            </h1>
-
-            <div class="stack-tag">
-                Webapp
-            </div>
-            <div class="stack-tag">
-                Mobile
-            </div>
-            <p class="light-text small-padding-top">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.    
-            </p>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span8 offset2 gray-card">
-            <p class="light-text">
-                Submitted by <b>Mark Zuckerberg</b>   
-            </p>
-        </div>
-    </div>
-
-
-    <div class="row-fluid small-padding-top">
-        <div class="span8 offset2 white-card">
-            <h4>
-                Front End
-            </h4>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span8 offset2 white-card">
-            <h6 class="span3">
-                Languages
-            </h6>
-            <div class="stack-tag very-small-margin-top">
-                Webapp
-            </div>
-            <div class="stack-tag very-small-margin-top">
-                Mobile
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span8 offset2 white-card">
-            <h6 class="span3">
-                Frameworks
-            </h6>
-            <div class="stack-tag very-small-margin-top">
-                Bootstrap
-            </div>
-            <div class="stack-tag very-small-margin-top">
-                Backbone
-            </div>
-        </div>
-    </div>
-
     <form method="post" action="">
-    	{% csrf_token %} 
-        {% if form.non_field_errors %}
-          <div class="alert alert-error" style="width:292px">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              {% for error in form.non_field_errors %}
-              {{ error  }}
-              {% endfor %}
-          </div>
-        {% endif %}
+		{% csrf_token %} 
+	    {{ form.non_field_errors }}
 
-        {% for field in form %}
-              <div class="fieldWrapper">
-                  {% for error in field.errors %}
-                      <div class="alert alert-error" style="width:292px">
-                          <button type="button" class="close" data-dismiss="alert">×</button>
-                      {{ error|escape }}
-                      </div>
-                  {% endfor %}
-                  {{ field.label }}
-                  {{ field }}
-              </div>
-          {% endfor %}
+	    <div class="row-fluid small-padding-top">
+	        <div class="span8 offset2 white-card">
+	            <h4>
+	                Company
+	            </h4>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.company_name.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.company_name.errors }}
+	        		{{ form.company_name }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.company_description.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.company_description.errors }}
+	        		{{ form.company_description }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.company_type_of_application.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.company_type_of_application.errors }}
+	        		{{ form.company_type_of_application }}
+	            </div>
+	        </div>
+	    </div>
+
+
+
+	    <div class="row-fluid small-padding-top">
+	        <div class="span8 offset2 white-card">
+	            <h4>
+	                Front End
+	            </h4>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.frontend_languages.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.frontend_languages.errors }}
+	        		{{ form.frontend_languages }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.frontend_framework.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.frontend_framework.errors }}
+	        		{{ form.frontend_framework }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.frontend_libraries.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.frontend_libraries.errors }}
+	        		{{ form.frontend_libraries }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.frontend_description.label }}
+	            </h6>
+	            <div class="">
+	            	{{ form.frontend_description.errors }}
+	        		{{ form.frontend_description }}
+	            </div>
+	        </div>
+	    </div>
+
+
+	    <div class="row-fluid small-padding-top">
+	        <div class="span8 offset2 white-card">
+	            <h4>
+	                Back End
+	            </h4>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.backend_languages.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.backend_languages.errors }}
+	        		{{ form.backend_languages }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.backend_framework.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.backend_framework.errors }}
+	        		{{ form.backend_framework }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.backend_libraries.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.backend_libraries.errors }}
+	        		{{ form.backend_libraries }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.backend_description.label }}
+	            </h6>
+	            <div class="">
+	            	{{ form.backend_description.errors }}
+	        		{{ form.backend_description }}
+	            </div>
+	        </div>
+	    </div>
+
+
+	   	<div class="row-fluid small-padding-top">
+	        <div class="span8 offset2 white-card">
+	            <h4>
+	                Databases
+	            </h4>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.database.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.database.errors }}
+	        		{{ form.database }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.database_description.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.database_description.errors }}
+	        		{{ form.database_description }}
+	            </div>
+	        </div>
+	    </div>
+
+
+	    <div class="row-fluid small-padding-top">
+	        <div class="span8 offset2 white-card">
+	            <h4>
+	                Server
+	            </h4>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.server_os.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.server_os.errors }}
+	        		{{ form.server_os }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.server_configuration.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.server_configuration.errors }}
+	        		{{ form.server_configuration }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.server_ram.label }}
+	            </h6>
+	            <div class="">
+	                {{ form.server_ram.errors }}
+	        		{{ form.server_ram }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.server_nodes.label }}
+	            </h6>
+	            <div class="">
+	            	{{ form.server_nodes.errors }}
+	        		{{ form.server_nodes }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.server_hosting_provider.label }}
+	            </h6>
+	            <div class="">
+	            	{{ form.server_hosting_provider.errors }}
+	        		{{ form.server_hosting_provider }}
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	            <h6 class="span3">
+	                {{ form.server_description.label }}
+	            </h6>
+	            <div class="">
+	            	{{ form.server_description.errors }}
+	        		{{ form.server_description }}
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="row-fluid">
+	        <div class="span8 offset2 white-card fieldWrapper">
+	        	<p><input type="submit" value="Submit your Stack!" class="btn btn-danger" /></p>
+	        </div>
+	    </div>
+
+	    
 	</form>
 
 

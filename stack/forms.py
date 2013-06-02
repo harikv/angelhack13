@@ -72,4 +72,4 @@ def DatabaseFormsetHelper(domain=None):
 class TechStackForm(forms.ModelForm):    
     class Meta:
         model = TechStack
-        exclude = ('domain', 'stack_item' )
+        exclude = ('domain', 'stack_item', 'company_slug' )
