@@ -12,7 +12,6 @@ class StackItem(models.Model):
 	item_justification = models.CharField(max_length=1024, null=True, default=None, blank=True)
 
 class TechStack(models.Model):
-	stack_item = models.ForeignKey(StackItem, null=True, default=None, blank=True, related_name='tech_stack')
 	domain = models.CharField(max_length=128, null=True, default=None, blank=True)
 
 	company_name = models.CharField(max_length=200, blank = True, null = True, verbose_name='Company Name')
