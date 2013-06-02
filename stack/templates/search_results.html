@@ -11,10 +11,11 @@
     {% for stack in object_list %}
     <div class="row-fluid small-padding-top">
         <div class="span8 offset2 white-card">
-            <h1>
+            <a href='/company/{{stack.get_company_slug}}'>
+                <h1>
                 {{stack.get_domain}}
-            </h1>
-
+                </h1>
+            </a>
             {% for tag in stack.get_summary_tags %}
             <div class="stack-tag">
                 {{tag}}

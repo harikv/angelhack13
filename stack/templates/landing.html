@@ -20,11 +20,13 @@
                 <h1 class="small-padding-bottom">
                     Featured Stacks
                 </h1>
-                <div class='span6 offset3'>
+                <div class='span5 offset3'>
                     {% for c in featured_list %}
+                <a href='company/{{c.get_company_slug}}'>
                     <div class="btn featured-listing-link">
                         {{c.company_name}}
                     </div>
+                </a>
                     {% endfor %}
                 </div>
             </div>

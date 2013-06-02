@@ -9,7 +9,7 @@ from django.core.context_processors import csrf
 from stack.forms import TechStackForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404, redirect
-
+from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.views.generic import ListView, DetailView, TemplateView
 
@@ -64,7 +64,7 @@ class CompanyPageView(DetailView):
 
         return context
 
-
+@login_required
 def CreateStackForm(request):
     if request.method == 'POST':
         form = TechStackForm(request.POST)

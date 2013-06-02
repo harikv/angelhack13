@@ -68,6 +68,10 @@ class TechStack(models.Model):
 	@property
 	def get_company_name(self):
 		return self.company_name
+
+	@property
+	def get_company_slug(self):
+		return self.company_slug
 	
 	@property
 	def get_frontend_languages(self):
