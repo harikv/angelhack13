@@ -28,8 +28,26 @@ class Migration(SchemaMigration):
         # Adding model 'TechStack'
         db.create_table('stack_techstack', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('stack_item', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='tech_stack', null=True, blank=True, to=orm['stack.StackItem'])),
             ('domain', self.gf('django.db.models.fields.CharField')(default=None, max_length=128, null=True, blank=True)),
+            ('company_name', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('company_description', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
+            ('company_type_of_application', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
+            ('frontend_languages', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('frontend_framework', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('frontend_libraries', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('frontend_description', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
+            ('backend_languages', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('backend_framework', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('backend_libraries', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('backend_description', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
+            ('database', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('database_description', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
+            ('server_os', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('server_configuration', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('server_ram', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('server_nodes', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('server_hosting_provider', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('server_description', self.gf('django.db.models.fields.CharField')(max_length=1000, null=True, blank=True)),
         ))
         db.send_create_signal('stack', ['TechStack'])
 
@@ -61,9 +79,27 @@ class Migration(SchemaMigration):
         },
         'stack.techstack': {
             'Meta': {'object_name': 'TechStack'},
+            'backend_description': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
+            'backend_framework': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'backend_languages': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'backend_libraries': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'company_description': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
+            'company_name': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'company_type_of_application': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
+            'database': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'database_description': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
             'domain': ('django.db.models.fields.CharField', [], {'default': 'None', 'max_length': '128', 'null': 'True', 'blank': 'True'}),
+            'frontend_description': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
+            'frontend_framework': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'frontend_languages': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'frontend_libraries': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'stack_item': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'tech_stack'", 'null': 'True', 'blank': 'True', 'to': "orm['stack.StackItem']"})
+            'server_configuration': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'server_description': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
+            'server_hosting_provider': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'server_nodes': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'server_os': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'server_ram': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'})
         }
     }
 

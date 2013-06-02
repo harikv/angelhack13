@@ -45,6 +45,7 @@ urlpatterns = patterns('',
     url(r'^$', LandingPageView.as_view(), name='landing_page'),
     url(r'^company/', CompanyPageView.as_view(), name='company_page'),
     url(r'^newstack/', 'stack.views.CreateStackForm', name='new_stack'),
+    url(r'^tags/', 'stack.views.GetTags', name='tags'),
     # url(r'^angelhack13/', include('angelhack13.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -53,6 +54,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^test/', 'stack.views.index'),
 #    url(r'^submit/(?P<component>\d)/$', 'stack.views.submit'),
 )
