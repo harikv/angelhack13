@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+    <link href="{% static 'css/company.css' %}" rel="stylesheet" type="text/css">
+    
+    <div class="span6 offset5 small-padding-top">
+        <h2>Search results for {{ search_term|capfirst }}...</h2>
+    </div>
+
+    {% ifnotequal object_list|length 0 %}
+    {% for stack in object_list %}
+    <div class="row-fluid small-padding-top">
+        <div class="span8 offset2 white-card">
+            <h1>
+                {{stack.get_domain}}
+            </h1>
+
+            {% for tag in stack.get_summary_tags %}
+            <div class="stack-tag">
+                {{tag}}
+            </div>
+            {% endfor %}
+
+            <p class="light-text small-padding-top">
+                {{stack.get_company_description}}
+            </p>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span8 offset2 gray-card">
+            <p class="light-text">
+                Submitted by {% for c in stack.get_contributors %}<b>{{c}}</b> {% endfor %}  
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    {% endifnotequal %}
+
+
+{% endblock %}

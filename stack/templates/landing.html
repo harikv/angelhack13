@@ -2,14 +2,16 @@
             {% block content %}
             <div class="row-fluid white-background text-center big-padding-top big-padding-bottom">
                 <h1>
-                    Checkout the stack for any website.
+                    Find the stack behind any website.
                 </h1>
                 <p class="small-padding-bottom light-text">
                     Discuss the tech stack behind the scenes with the programmers who have used 'em.
                 </p>
-                <form class="form-search">
-                  <input type="text" class=" search-query input-medium span4" placeholder="Search website or technology.">
-                  <button type="submit" class="btn">Search</button>
+                <form class="form-search" action='{% url search %}' type='get'>
+                    <div class='span4 offset4' style='border-radius:2px; height:40px;background-color:#f2f2f2;'>
+                          <img style='position:relative;top:5px;right:10px;' src='{{STATIC_URL}}/img/searchIcon_large.png' />
+                          <input style='border:none;border-radius:0px;background-color:#f2f2f2;box-shadow:none;position:relative;top:5px;' name='q' type="text" class="search-query input-medium span10" placeholder="Search website or technology e.g. python, ruby">
+                    </div>
                 </form>
             </div>
             <div class="dark-line"></div>
@@ -18,18 +20,26 @@
                 <h1 class="small-padding-bottom">
                     Featured Stacks
                 </h1>
-                <div class="btn featured-listing-link">
-                    Hagglr
+                <div class='span6 offset3'>
+                    {% for c in featured_list %}
+                    <div class="btn featured-listing-link">
+                        {{c.company_name}}
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="dark-line"></div>
-            <div class="row-fluid text-center big-padding-top big-padding-bottom">
+
+            <img class='offset4' style='position:relative;top:50px;' src='{{STATIC_URL}}/img/robot.png' />
+            <div style='display:inline' class="row-fluid text-center big-padding-top big-padding-bottom">
                 <p>
                     What stack is your application working on?
                 </p>
-                <div class="btn btn-danger">
-                    Submit your Stack
-                </div>
+                <a href="{% url new_stack %}">
+                    <div class="btn btn-danger">
+                        Submit your Stack
+                    </div>
+                </a>
             </div>
         </div>
         {% endblock %}

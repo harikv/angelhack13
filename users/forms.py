@@ -27,17 +27,22 @@ class HackerRegistrationForm(EmailUserCreationForm):
         Check the supplied email address against a list of known free
         webmail domains.
         
-        """
-        super(HackerRegistrationForm, self).clean_email()
-    	
+        """    	
     	bad_domains = ['aim.com', 'aol.com', 'email.com', 'gmail.com',
                    'googlemail.com', 'hotmail.com', 'hushmail.com',
                    'msn.com', 'mail.ru', 'mailinator.com', 'live.com',
                    'yahoo.com']
 
         email_domain = self.cleaned_data['email'].split('@')[1]
+        
         if email_domain in bad_domains:
             raise forms.ValidationError(("Please sign up with your company email address."))
+
+        email = self.cleaned_data["email"]
+        from emailusernames.utils import user_exists
+        if user_exists(email):
+            raise forms.ValidationError(("A user with that email already exists."))
+
         return self.cleaned_data['email']
 
     def clean(self):
